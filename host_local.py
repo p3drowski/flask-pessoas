@@ -2,6 +2,13 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
+from flask import Flask, jsonify, request
+from flask_cors import CORS   # ✅ importa o módulo
+
+app = Flask(__name__)
+CORS(app)  # ✅ habilita CORS para todas as rotas
+
+
 # Base de dados simulada
 pessoas = [
     {"id": 1, "nome": "Pedro Pessoa", "idade": 19, "cidade": "Belo Horizonte", "cpf": "11111111111"},
@@ -90,3 +97,4 @@ def buscar_via_parametro():
 if __name__ == '__main__':
     print("Servidor rodando em http://localhost:5000")
     app.run(host='0.0.0.0', port=5000)
+
